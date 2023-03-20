@@ -9,6 +9,9 @@ export interface BlogsType {
             url: string;
         }
     }
+    description: {
+        text: string
+    }
     image: {
         url: string
     }

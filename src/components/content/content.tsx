@@ -3,10 +3,10 @@ import {Avatar, Box, Divider, Typography} from "@mui/material";
 import Image from "next/image";
 import {format} from "date-fns";
 import {ContentProps} from "@/components/content/content.props";
+import {calculateEstimatedTimeToRead} from "@/helpers/time.format";
 
 const Content = ({blogs}: ContentProps) => {
 
-    // @ts-ignore
     return (
         <Box width={{xs: '100%', md: '70%'}}>
             {blogs.map((item: any) => {
@@ -31,7 +31,7 @@ const Content = ({blogs}: ContentProps) => {
                             <Avatar alt={item.author?.name} src={item.author?.avatar?.url}/>
                             <Box>
                                 <Typography>{item.author.name}</Typography>
-                                <Box color={'gray'}>{format(new Date(item.createdAt), 'dd MMM yyyy')} &#x2022; 10 min read</Box>
+                                <Box color={'gray'}>{format(new Date(item.createdAt), 'dd MMM yyyy')} &#x2022; {calculateEstimatedTimeToRead(item.description.text)} min read</Box>
                             </Box>
                         </Box>
                     </Box>

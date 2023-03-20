@@ -30,6 +30,9 @@ export const BlogsService = {
                             slug
                     }
                 }
+                description {
+                       text
+                 }
             }
          }
       `;
@@ -57,6 +60,9 @@ export const BlogsService = {
                 image {
                     url
                 }
+                description {
+                       text
+                 }
             }
          }
         `;

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import {useRouter} from 'next/router';
 import {format} from "date-fns";
 import {HeroProps} from "@/components/hero/hero.props";
+import {calculateEstimatedTimeToRead} from "@/helpers/time.format";
 
 const Hero = ({blogs}: HeroProps) => {
 
@@ -50,7 +51,7 @@ const Hero = ({blogs}: HeroProps) => {
                                     <Avatar alt={item.author.name} src={item.author.avatar?.url}/>
                                     <Box>
                                         <Typography>{item.author.name}</Typography>
-                                        <Box>{format(new Date(item?.createdAt), 'dd MMM yyyy')} &#x2022; 10 min read</Box>
+                                        <Box>{format(new Date(item?.createdAt), 'dd MMM yyyy')} &#x2022; {calculateEstimatedTimeToRead(item.description.text)} min read</Box>
                                     </Box>
                                 </Box>
                             </Box>
