@@ -17,6 +17,7 @@ import {
 import {drawerWidth, navItems} from "@/config/constants";
 import CloseIcon from '@mui/icons-material/Close';
 import AdjustIcon from '@mui/icons-material/Adjust';
+import {useRouter} from "next/router";
 
 interface Props {
     window?: () => Window;
@@ -25,6 +26,7 @@ interface Props {
 const Navbar = ({window}: Props) => {
 
     const [mobileOpen, setMobileOpen] = useState(false);
+    const {push} = useRouter()
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
@@ -32,7 +34,7 @@ const Navbar = ({window}: Props) => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
             <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px'}}>
-                <Box sx={{my: 2, display: 'flex', alignItems: 'center', gap: '5px'}}>
+                <Box onClick={()=> push('/')} sx={{my: 2, display: 'flex', alignItems: 'center', gap: '5px', cursor: "pointer"}}>
                     <AdjustIcon/>
                     <Typography variant={'h6'}>
                         Sammi
@@ -68,7 +70,7 @@ const Navbar = ({window}: Props) => {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Box sx={{my: 2, alignItems: 'center', gap: '5px', flexGrow: 1, display: {xs: 'none', sm: 'flex'}}}>
+                    <Box onClick={()=> push('/')} sx={{my: 2, cursor: 'pointer', alignItems: 'center', gap: '5px', flexGrow: 1, display: {xs: 'none', sm: 'flex'}}}>
                         <AdjustIcon/>
                         <Typography
                             variant="h6"
