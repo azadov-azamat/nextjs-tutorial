@@ -46,7 +46,7 @@ const Navbar = ({window}: Props) => {
             <List>
                 {navItems.map(item => (
                     <ListItem key={item.route} disablePadding>
-                        <ListItemButton sx={{textAlign: 'center'}}>
+                        <ListItemButton sx={{textAlign: 'center'}} onClick={()=> push(item.route)}>
                             <ListItemText primary={item.label}/>
                         </ListItemButton>
                     </ListItem>
@@ -58,8 +58,8 @@ const Navbar = ({window}: Props) => {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box height={'10vh'} sx={{display: 'flex'}}>
-            <AppBar sx={{height: '10vh', backgroundColor: '#141414'}} component={'nav'}>
+        <Box height={'9vh'} sx={{display: 'flex'}}>
+            <AppBar sx={{height: '9vh', backgroundColor: '#141414'}} component={'nav'}>
                 <Toolbar>
                     <IconButton
                         color={'inherit'}
