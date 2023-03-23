@@ -29,7 +29,7 @@ const Content = ({blogs}: ContentProps) => {
                                fill/>
                     </Box>
                     <Typography variant={'h4'} marginTop={'30px'}>{item.title}</Typography>
-                    <Typography variant={'body1'} color={'gray'}>{item.exerpt}</Typography>
+                    <Typography variant={'body1'} color={'gray'}>{item.excerpt}</Typography>
                     <Divider sx={{marginTop: '30px'}}/>
                     <Box sx={{display: 'flex', gap: '10px', marginTop: '20px'}}>
                         <Avatar alt={item.author?.name} src={item.author?.avatar?.url}/>
