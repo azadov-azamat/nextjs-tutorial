@@ -34,7 +34,7 @@ const Navbar = ({window}: Props) => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
             <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px'}}>
-                <Box onClick={()=> push('/')} sx={{my: 2, display: 'flex', alignItems: 'center', gap: '5px', cursor: "pointer"}}>
+                <Box sx={{my: 2, display: 'flex', alignItems: 'center', gap: '5px', cursor: "pointer"}}>
                     <AdjustIcon/>
                     <Typography variant={'h6'}>
                         Sammi
@@ -81,7 +81,7 @@ const Navbar = ({window}: Props) => {
                     </Box>
                     <Box sx={{display: {xs: 'none', sm: 'block'}}}>
                         {navItems.map(item => (
-                            <Button key={item.route} sx={{color: '#fff'}}>
+                            <Button onClick={()=> push(item.route)} key={item.route} sx={{color: '#fff'}}>
                                 {item.label}
                             </Button>
                         ))}

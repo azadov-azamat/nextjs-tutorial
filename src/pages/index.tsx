@@ -6,23 +6,26 @@ import {BlogsService} from "@/service/blog.service";
 import {GetServerSideProps} from "next";
 import {BlogsType} from "@/interface/blogs.interface";
 import {CategoriesType} from "@/interface/categories.interface";
+import SEO from "@/layout/seo/seo";
 
 const IndexPage = ({blogs, latestBlogs, categories}: HomePageProps) => {
 
     return (
-        <Layout>
-            <Hero blogs={blogs.slice(0, 3)}/>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: {xs: 'column', md: 'row'},
-                    gap: '20px',
-                    padding: '20px'
-                }}>
-                <Sidebar latestBlogs={latestBlogs} categories={categories}/>
-                <Content blogs={blogs}/>
-            </Box>
-        </Layout>
+        <SEO>
+            <Layout>
+                <Hero blogs={blogs.slice(0, 3)}/>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: {xs: 'column', md: 'row'},
+                        gap: '20px',
+                        padding: '20px'
+                    }}>
+                    <Sidebar latestBlogs={latestBlogs} categories={categories}/>
+                    <Content blogs={blogs}/>
+                </Box>
+            </Layout>
+        </SEO>
     )
 }
 export default IndexPage

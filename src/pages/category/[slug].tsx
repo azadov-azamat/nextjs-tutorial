@@ -7,17 +7,20 @@ import {CategoriesType} from "@/interface/categories.interface";
 import {Box} from "@mui/material";
 import {Content, Sidebar} from "@/components";
 import {useRouter} from "next/router";
+import SEO from "@/layout/seo/seo";
 
 const CategoryDetailedPage = ({ blogs, latestBlogs, categories }: DetailedCategoriesPageProps) => {
     const router = useRouter();
 
     return (
-        <Layout>
-            <Box sx={{ display: 'flex', gap: '20px', flexDirection: { xs: 'column', md: 'row' }, padding: '20px' }}>
-                <Sidebar latestBlogs={latestBlogs} categories={categories} />
-                <Content blogs={blogs} />
-            </Box>
-        </Layout>
+        <SEO metaTitle={`${router.query.slug}-category`}>
+            <Layout>
+                <Box sx={{ display: 'flex', gap: '20px', flexDirection: { xs: 'column', md: 'row' }, padding: '20px' }}>
+                    <Sidebar latestBlogs={latestBlogs} categories={categories} />
+                    <Content blogs={blogs} />
+                </Box>
+            </Layout>
+        </SEO>
     );
 };
 
