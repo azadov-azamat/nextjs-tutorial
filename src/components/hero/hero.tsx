@@ -10,6 +10,8 @@ import {calculateEstimatedTimeToRead} from "@/helpers/time.format";
 
 const Hero = ({blogs}: HeroProps) => {
 
+    const router = useRouter()
+
     return (
         <Box width={'100%'} height={'70vh'} sx={{backgroundColor: 'red'}}>
             <Carousel
@@ -21,7 +23,7 @@ const Hero = ({blogs}: HeroProps) => {
                 }}
             >
                 {blogs.map(item => (
-                    <Box key={item.id}>
+                    <Box key={item.id} sx={{cursor: 'pointer'}} onClick={() => router.push(`/blog/${item.slug}`)}>
                         <Box sx={{position: 'relative', width: '100%', height: '70vh'}}>
                             <Image src={item.image?.url} alt={item.title} fill style={{objectFit: 'cover'}}/>
                             <Box sx={{

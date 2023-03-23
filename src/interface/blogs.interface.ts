@@ -10,6 +10,7 @@ export interface BlogsType {
         }
     }
     description: {
+        html: string;
         text: string
     }
     image: {
